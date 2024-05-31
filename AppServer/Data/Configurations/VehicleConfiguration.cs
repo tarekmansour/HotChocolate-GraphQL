@@ -23,6 +23,11 @@ public class VehicleConfiguration : IEntityTypeConfiguration<Vehicle>
         builder.Property(x => x.Color).HasColumnType("[varchar](50)");
         builder.Property(x => x.MileageUnit).HasColumnType("[varchar](10)");
 
+        builder
+            .HasOne(v => v.Order)
+            .WithMany(o => o.Vehicles)
+            .HasForeignKey(v => v.OrderId);
+
         builder.HasData(
             new Vehicle
             {
@@ -36,7 +41,8 @@ public class VehicleConfiguration : IEntityTypeConfiguration<Vehicle>
                 Color = "Black",
                 ModelYear = 2023,
                 Mileage = 4500,
-                MileageUnit = "KM"
+                MileageUnit = "KM",
+                OrderId = 1
             },
             new Vehicle
             {
@@ -50,7 +56,8 @@ public class VehicleConfiguration : IEntityTypeConfiguration<Vehicle>
                 Color = "White",
                 ModelYear = 2019,
                 Mileage = 26000,
-                MileageUnit = "KM"
+                MileageUnit = "KM",
+                OrderId = 1
             }
         );
     }

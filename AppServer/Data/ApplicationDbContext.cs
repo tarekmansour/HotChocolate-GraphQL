@@ -14,4 +14,5 @@ public class ApplicationDbContext : DbContext
         => modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
 
     public DbSet<Vehicle> Vehicles { get; set; }
+    public DbSet<Order> Orders { get; set; }
 }

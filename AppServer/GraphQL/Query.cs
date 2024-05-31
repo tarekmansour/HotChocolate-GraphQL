@@ -6,8 +6,15 @@
 public class Query
 {
     /// <summary>
-    /// Get the vehicles list.
+    /// Vehicles connection.
     /// </summary>
     public IQueryable<Vehicle> GetVehicles(ApplicationDbContext context)
         => context.Vehicles;
+
+    /// <summary>
+    /// Orders with vehicles connection.
+    /// </summary>
+    [UseProjection]
+    public IQueryable<Order> GetOrders(ApplicationDbContext context)
+        => context.Orders;
 }

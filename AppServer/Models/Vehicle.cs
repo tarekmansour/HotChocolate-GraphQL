@@ -59,4 +59,14 @@ public class Vehicle
     /// The mileage unit.
     /// </summary>
     public string? MileageUnit { get; init; }
+
+    /// <summary>
+    /// The order Id.
+    /// </summary>
+    public int OrderId { get; init; }
+
+    /// <summary>
+    /// The order related to the vehicle.
+    /// </summary>
+    public Order Order { get; set; }
 }

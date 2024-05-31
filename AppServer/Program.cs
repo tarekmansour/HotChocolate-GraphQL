@@ -10,8 +10,9 @@ builder.Services.AddPooledDbContextFactory<ApplicationDbContext>(options =>
 
 builder.Services
     .AddGraphQLServer()
+    .RegisterDbContext<ApplicationDbContext>(DbContextKind.Pooled)
     .AddQueryType<Query>()
-    .RegisterDbContext<ApplicationDbContext>(DbContextKind.Pooled);
+    .AddProjections();
 
 var app = builder.Build();
 
