@@ -17,4 +17,6 @@ var app = builder.Build();
 
 app.MapGraphQL();
 
+app.UseGraphQLVoyager();
+
 app.Run();
