@@ -1,19 +1,13 @@
 ﻿namespace AppServer;
 
-/// <summary>
-/// The Query type.
-/// </summary>
+[GraphQLDescription("The Query type.")]
 public class Query
 {
-    /// <summary>
-    /// Vehicles connection.
-    /// </summary>
+    [GraphQLDescription("Represents vehicles list.")]
     public IQueryable<Vehicle> GetVehicles(ApplicationDbContext context)
         => context.Vehicles;
 
-    /// <summary>
-    /// Orders with vehicles connection.
-    /// </summary>
+    [GraphQLDescription("Represents the orders with vehicles.")]
     [UseProjection]
     public IQueryable<Order> GetOrders(ApplicationDbContext context)
         => context.Orders;
